@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-# import itertools
+
 
 # xlsx source import
 data = pd.read_excel('source/task_sample.xlsx',
@@ -26,14 +26,14 @@ for i in sort_list:
     # negatively skewed
     if out_bottom <= np.min(np.array([a.vals])):
         # try Median - (Q3-Q2)*1.5
-        out_bottom_n = (np.percentile(np.array([a.vals]), 25) -
+        out_bottom= (np.percentile(np.array([a.vals]), 25) -
                         (np.percentile(np.array([a.vals]), 75) - np.median(np.array([a.vals]))) * 1.5).astype(float)
-        occup.append(out_bottom_n)
+        occup.append(out_bottom)
     else:
         occup.append(out_bottom)
 # convert statistic iter list 2 Dataframe
 data_distr = pd.DataFrame([list(x) for x in zip(sort_list, occup)])
 # merge main data with statistics
-data.merge(data_distr, left_on='iter_str', right_on=0)
+data = data.reset_index().merge(data_distr, left_on='iter_str', right_on=0).set_index('index')
 
 
