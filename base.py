@@ -23,7 +23,7 @@ for i in sort_list:
     out_bottom = (np.percentile(np.array([a.vals]), 25) -
                   (np.percentile(np.array([a.vals]), 75) - np.percentile(np.array([a.vals]), 25)) * 1.5).astype(int)
     # .astype(str))
-    # negatively skewed
+    # positively skewed
     if out_bottom <= np.min(np.array([a.vals])):
         # try Median - (Q3-Q2)*1.5
         out_bottom= (np.percentile(np.array([a.vals]), 25) -
