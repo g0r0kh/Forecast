@@ -6,7 +6,7 @@ Task:
 catch all red dots in statistical series.
 
 
-Asymmetric distribution red underlined with no math solution..so here the space of your imagination 
+Asymmetric distribution red underlined with no math solution..so here the space for your imagination 
 
 
 
